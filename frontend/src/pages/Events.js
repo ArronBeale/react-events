@@ -9,3 +9,13 @@ function EventsPage() {
 }
 
 export default EventsPage;
+
+export async function loader() {
+  const response = await fetch('https://8080-arronbeale-reactevents-xvwen2ceig2.ws-eu104.gitpod.io/events');
+      if (!response.ok) {
+        // ...
+      } else {
+        const resData = await response.json();
+        return resData.events;
+      }
+}

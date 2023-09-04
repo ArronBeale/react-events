@@ -31,7 +31,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import HomePage from './pages/Home';
-import EventsPage from './pages/Events';
+import EventsPage, { loader as eventsLoader } from './pages/Events';
 import EventDetailPage from './pages/EventDetail';
 import NewEventPage from './pages/NewEvent';
 import EventsRootLayout from './pages/EventsRoot';
@@ -48,15 +48,7 @@ const router = createBrowserRouter([
         path: 'events',
         element: <EventsRootLayout />,
         children: [
-          { index: true, element: <EventsPage />, loader: async () => {
-            const response = await fetch('https://8080-arronbeale-reactevents-xvwen2ceig2.ws-eu104.gitpod.io/events');
-      if (!response.ok) {
-        // ...
-      } else {
-        const resData = await response.json();
-        return resData.events;
-      }
-          } },
+          { index: true, element: <EventsPage />, loader: eventsLoader },
           { path: ':eventId', element: <EventDetailPage /> },
           { path: 'new', element: <NewEventPage /> },
           { path: ':eventId/edit', element: <EditEventPage /> },

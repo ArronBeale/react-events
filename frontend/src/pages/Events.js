@@ -5,11 +5,10 @@ import EventsList from '../components/EventsList';
 function EventsPage() {
   const data = useLoaderData();
 
-  if (data.isError) {
-    return <p>{data.message}</p>
-  }
+  // if (data.isError) {
+  //   return <p>{data.message}</p>
+  // }
   const events = data.events;
-
 
   return <EventsList events={events} />;
 }
@@ -17,10 +16,15 @@ function EventsPage() {
 export default EventsPage;
 
 export async function loader() {
-  const response = await fetch('https://8080-arronbeale-reactevents-xvwen2ceig2.ws-eu104.gitpod.io/events');
-      if (!response.ok) {
-        return { isError: true, message: 'Could not fetch events.'};
-      } else {
-        return response;
-      }
+  const response = await fetch(
+    'https://8080-arronbeale-reactevents-xvwen2ceig2.ws-eu104.gitpod.io/events'
+  );
+  if (!response.ok) {
+    // return { isError: true, message: 'Could not fetch events.'};
+    throw new Response(JSON.stringify({ message: 'Could not fetch events.' }), {
+      status: 500,
+    });
+  } else {
+    return response;
+  }
 }

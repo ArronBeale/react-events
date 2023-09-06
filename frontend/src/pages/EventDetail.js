@@ -12,7 +12,7 @@ function EventDetailPage() {
   
   export default EventDetailPage;
 
-  export async function loader({reqeust, params}) {
+  export async function loader({request, params}) {
     const id = params.eventId;
 
     const response = await fetch('https://8080-arronbeale-reactevents-xvwen2ceig2.ws-eu104.gitpod.io/events/' + id);

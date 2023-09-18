@@ -1,21 +1,23 @@
-import { useLoaderData, json } from 'react-router-dom';
+import { Suspense } from 'react';
+import { useLoaderData, json, defer, Await } from 'react-router-dom';
 
 import EventsList from '../components/EventsList';
 
 function EventsPage() {
-  const data = useLoaderData();
+  const { events } = useLoaderData();
 
-  // if (data.isError) {
-  //   return <p>{data.message}</p>
-  // }
-  const events = data.events;
-
-  return <EventsList events={events} />;
+  return (
+    <Suspense fallback={<p style={{ textAlign: 'center' }}>Loading...</p>}>
+      <Await resolve={events}>
+        {(loadedEvents) => <EventsList events={loadedEvents} />}
+      </Await>
+    </Suspense>
+  );
 }
 
 export default EventsPage;
 
-export async function loader() {
+async function loadEvents() {
   const response = await fetch(
     'https://8080-arronbeale-reactevents-xvwen2ceig2.ws-eu104.gitpod.io/events'
   );
@@ -31,6 +33,13 @@ export async function loader() {
       }
     );
   } else {
-    return response;
+    const resData = await response.json();
+    return resData.events;
   }
+}
+
+export function loader() {
+  return defer({
+    events: loadEvents(),
+  });
 }

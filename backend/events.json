@@ -1,18 +1,1 @@
-{
-  "events": [
-    {
-      "id": "e1",
-      "title": "A dummy event",
-      "date": "2023-02-22",
-      "image": "https://blog.hubspot.de/hubfs/Germany/Blog_images/Optimize_Marketing%20Events%20DACH%202021.jpg",
-      "description": "Join this amazing event and connect with fellow developers."
-    },
-    {
-      "id": "e2",
-      "title": "A dummy event 2",
-      "date": "2023-03-23",
-      "image": "https://blog.hubspot.de/hubfs/Germany/Blog_images/Optimize_Marketing%20Events%20DACH%202021.jpg",
-      "description": "Join this amazing event and connect with fellow developers."
-    }
-  ]
-}
+{"events":[{"title":"Are My Neighbors Aliens","image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGBbXVuVkYDzSenk2XvkcTVUFNUzOuBOk9HQ&usqp=CAU","date":"2023-09-22","description":"Discuss how to determine if your neighbors are aliens at this event.","id":"53309ee2-d804-4392-9f6b-9697d10dd2db"},{"title":"Cool Event","image":"https://images.pexels.com/photos/3321789/pexels-photo-3321789.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1","date":"2023-09-16","description":"An event that is cooler than cool.","id":"82789884-4f27-43b2-81e0-edb79004a085"},{"title":"Global Empire Congress","image":"https://blog.hubspot.de/hubfs/Germany/Blog_images/Optimize_Marketing%20Events%20DACH%202021.jpg","date":"2023-02-22","description":"Join this amazing event and connect with fellow empire attendees.","id":"e1"}]}

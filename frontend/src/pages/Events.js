@@ -18,11 +18,10 @@ function EventsPage() {
 export default EventsPage;
 
 async function loadEvents() {
-  const response = await fetch(
-    'https://8080-arronbeale-reactevents-xvwen2ceig2.ws-eu104.gitpod.io/events'
-  );
+  const response = await fetch('http://localhost:8080/events');
+
   if (!response.ok) {
-    // return { isError: true, message: 'Could not fetch events.'};
+    // return { isError: true, message: 'Could not fetch events.' };
     // throw new Response(JSON.stringify({ message: 'Could not fetch events.' }), {
     //   status: 500,
     // });

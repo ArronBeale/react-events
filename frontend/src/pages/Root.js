@@ -3,8 +3,7 @@ import { Outlet, useNavigation } from 'react-router-dom';
 import MainNavigation from '../components/MainNavigation';
 
 function RootLayout() {
-  /* To show user data is loading
-  const navigation = useNavigation(); */
+  // const navigation = useNavigation();
 
   return (
     <>

@@ -33,7 +33,10 @@ function EventDetailPage() {
 export default EventDetailPage;
 
 async function loadEvent(id) {
-  const response = await fetch('https://8080-arronbeale-reactevents-xvwen2ceig2.ws-eu104.gitpod.io/events/' + id);
+  const response = await fetch(
+    'https://8080-arronbeale-reactevents-xvwen2ceig2.ws-eu104.gitpod.io/events/' +
+      id
+  );
 
   if (!response.ok) {
     throw json(
@@ -49,7 +52,9 @@ async function loadEvent(id) {
 }
 
 async function loadEvents() {
-  const response = await fetch('https://8080-arronbeale-reactevents-xvwen2ceig2.ws-eu104.gitpod.io/events');
+  const response = await fetch(
+    'https://8080-arronbeale-reactevents-xvwen2ceig2.ws-eu104.gitpod.io/events'
+  );
 
   if (!response.ok) {
     // return { isError: true, message: 'Could not fetch events.' };
@@ -81,12 +86,16 @@ export async function action({ params, request }) {
   const eventId = params.eventId;
 
   const token = getAuthToken();
-  const response = await fetch('https://8080-arronbeale-reactevents-xvwen2ceig2.ws-eu104.gitpod.io/events/' + eventId, {
-    method: request.method,
-    headers: {
-      'Authorization': 'Bearer ' + token
+  const response = await fetch(
+    'https://8080-arronbeale-reactevents-xvwen2ceig2.ws-eu104.gitpod.io/events/' +
+      eventId,
+    {
+      method: request.method,
+      headers: {
+        'Authorization': 'Bearer ' + token,
+      },
     }
-  });
+  );
 
   if (!response.ok) {
     throw json(

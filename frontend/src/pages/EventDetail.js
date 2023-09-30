@@ -34,7 +34,7 @@ export default EventDetailPage;
 
 async function loadEvent(id) {
   const response = await fetch(
-    'http://localhost:8080/events/' +
+    'https://8080-arronbeale-reactevents-xvwen2ceig2.ws-eu105.gitpod.io/events/' +
       id
   );
 
@@ -53,7 +53,7 @@ async function loadEvent(id) {
 
 async function loadEvents() {
   const response = await fetch(
-    'http://localhost:8080/events'
+    'https://8080-arronbeale-reactevents-xvwen2ceig2.ws-eu105.gitpod.io/events'
   );
 
   if (!response.ok) {
@@ -87,7 +87,7 @@ export async function action({ params, request }) {
 
   const token = getAuthToken();
   const response = await fetch(
-    'http://localhost:8080/events/' +
+    'https://8080-arronbeale-reactevents-xvwen2ceig2.ws-eu105.gitpod.io/events/' +
       eventId,
     {
       method: request.method,

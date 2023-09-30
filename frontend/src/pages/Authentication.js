@@ -22,7 +22,7 @@ export async function action({ request }) {
     password: data.get('password'),
   };
 
-  const response = await fetch('http://localhost:8080/' + mode, {
+  const response = await fetch('https://8080-arronbeale-reactevents-xvwen2ceig2.ws-eu105.gitpod.io/' + mode, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
